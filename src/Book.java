@@ -12,5 +12,6 @@ public class Book {
     public String getInfo() {
         return title +" cтраниц: " + author + "\nОпубликован в " + year + " году";
     }
+
 }
 
