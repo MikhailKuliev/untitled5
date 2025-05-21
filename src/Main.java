@@ -2,20 +2,25 @@
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-switch (args.length) {
-    case 1:
-        System.out.println(args[0]);
-        break;
-        case 2:
-            System.out.println(args[0] + " " + args[1]);
-            break;
-            case 3:
-                System.out.println(args[0] + " " + args[1] + " " + args[2]);
-                break;
-                default:
-                    break;
+        Library library = new Library();
+// добавление книг
+        library.addBook(new Book("5000", "Лев толстой", 1901 ));
+        library.addBook(new Book("3124", "Пушкин", 1860 ));
+        // создание члена библеотеки
+        LibraryMember member = new LibraryMember("Alice", 1);
+        System.out.println(member.getMemberInfo());
+
+        BookAction action = new BookAction() {
+            @Override
+            public void performAction(Book book) {
+                System.out.println("выполнения действий: " + book.getInfo() );
+
+            }
+        };
+        for(Book book : library.getBooks()) {
+            System.out.println(book.getInfo());
+        }
 
 
-}
     }
 }
